@@ -27,10 +27,10 @@ sigma = zeros(1, size(X, 2));
 %
 
 for iter = 1 : size(X, 2)
-  current_X = X(:, iter)
+  current_X = X_norm(:, iter)
   mu(1, iter) = mean(current_X)
   sigma(1, iter) = std(current_X)
-  X(:, iter) = ( current_X - mu(1, iter) ) / sigma(1, iter)
+  X_norm(:, iter) = ( current_X - mu(1, iter) ) / sigma(1, iter)
 end
 
 % ============================================================
