@@ -26,15 +26,12 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %
 
-mu = X - mean(X)
-sigma = mu / std(mu)
-
-
-
-
-
-
-
+for iter = 1 : size(X, 2)
+  current_X = X(:, iter)
+  mu = current_X - mean(current_X)
+  sigma = mu / std(mu)
+  X(:, iter) = sigma
+end
 
 % ============================================================
 
