@@ -70,9 +70,11 @@ for iter = 1 : m
   a3 = sigmoid( a2 * Theta2' );
   iterY = zeros(num_labels, 1);
   iterY(y(iter)) = 1;
-  J = J - ( log(a3)*iterY +  log(1-a3)*(1-iterY) ) / m;
+  J = J - ( log(a3)*iterY +  log(1-a3)*(1-iterY) ) / m ;
 end
 
+% regularized
+J = J + ( lambda * (sum(sumsq( Theta1 )) + sum(sumsq( Theta2 ))) ) / (2*m)
 
 
 
