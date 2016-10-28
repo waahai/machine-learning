@@ -74,7 +74,7 @@ for iter = 1 : m
 end
 
 % regularized
-J = J + ( lambda * (sum(sumsq( Theta1 )) + sum(sumsq( Theta2 ))) ) / (2*m)
+J = J + lambda * (sum(sumsq( Theta1(:,2:end) )) + sum(sumsq( Theta2(:, 2:end) )))/ (2*m);
 
 
 
