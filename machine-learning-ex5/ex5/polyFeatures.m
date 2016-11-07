@@ -17,7 +17,7 @@ X_poly  = zeros(numel(X), p);
 
 #temp = 1:1:p;
 
-for i = 2:p
+for i = 1:p
   X_poly(:, i) = X.^i;
 end
 
