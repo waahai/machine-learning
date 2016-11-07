@@ -56,7 +56,7 @@ error_val   = zeros(m, 1);
 options = optimset('MaxIter', 100);
 
 for i = 1:m
-  theta = [1;1];
+  theta = ones(size(X, 2), 1);
   costFunction = @(p) linearRegCostFunction(X(1:i,:), y(1:i), p, lambda);
   theta = fmincg(costFunction, theta, options);
   error_train(i) = linearRegCostFunction(X(1:i,:), y(1:i), theta, 0);
