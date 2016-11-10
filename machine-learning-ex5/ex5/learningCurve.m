@@ -55,6 +55,9 @@ error_val   = zeros(m, 1);
 
 options = optimset('MaxIter', 100);
 
+[X y] = shufferExamples(X, y, 50);
+[Xval yval] = shufferExamples(Xval, yval, 50);
+
 for i = 1:m
   theta = ones(size(X, 2), 1);
   costFunction = @(p) linearRegCostFunction(X(1:i,:), y(1:i), p, lambda);

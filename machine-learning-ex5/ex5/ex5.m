@@ -201,7 +201,7 @@ pause;
 %  "best" lambda value.
 %
 
-[lambda_vec, error_train, error_val] = ...
+[lambda_vec, error_train, error_val, theta_vec] = ...
     validationCurve(X_poly, y, X_poly_val, yval);
 
 close all;
@@ -218,3 +218,9 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+[min_error_val lambda_index] = min(error_val);
+lambda = lambda_vec(lambda_index)
+theta = theta_vec(lambda_index, :)'
+error_test = linearRegCostFunction(X_poly_test, ytest, theta, 0);
+fprintf('test_error: %f\n', error_test);
