@@ -22,6 +22,7 @@ sigma = 0.1;
 %  Note: You can compute the prediction error using
 %        mean(double(predictions ~= yval))
 %
+
 % params = [0.01 0.03 0.1 0.3 1 3 10 30]';
 % len = length(params);
 % errors = zeros(length(params)^2, 1);
