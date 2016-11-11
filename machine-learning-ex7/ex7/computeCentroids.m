@@ -28,7 +28,9 @@ centroids = zeros(K, n);
 
 for i = 1:K
   temp = (idx == i);
-  centroids(i) = sum(X'*temp)/sum(temp);
+  for j = 1:n
+    centroids(i, j) = sum(X'(j, :)*temp)/sum(temp);
+  end
 end
 
 % =============================================================
