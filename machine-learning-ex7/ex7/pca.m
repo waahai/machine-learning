@@ -20,8 +20,12 @@ S = zeros(n);
 %       number of examples).
 %
 
-
-[U, S, V] = svd(cov(X));
+Sigma = zeros(n, n);
+for i=1:m
+  Sigma = Sigma + X(i, :)'*X(i, :);
+end
+Sigma = X'*X/m;
+[U, S, V] = svd(Sigma);
 
 
 
