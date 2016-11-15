@@ -43,16 +43,16 @@ Theta_grad = zeros(size(Theta));
 temp = R.*(X*Theta'-Y);
 J = sumsq( temp(:) )/2 + lambda*(sumsq(Theta(:))+sumsq(X(:)))/2;
 
-Theta_grad = temp' * X;
+Theta_grad = temp' * X + lambda*Theta;
 % for j=1:size(Theta_grad, 1)
-%   Theta_grad(j, :) = X' * (R(:, j).*(X*Theta(j, :)') - Y(:, j));
+%   Theta_grad(j, :) = (R(:, j).*(X*Theta(j, :)') - Y(:, j))' * X;
 %   % for k=1:size(Theta_grad, 2)
-%   %   Theta_grad(j, k) = X(:, k)' * (R(:, j).*(X*Theta(j, :)') - Y(:, j));
+%   %   Theta_grad(j, k) = (R(:, j).*(X*Theta(j, :)') - Y(:, j))' * X(:, k)';
 %   % end
 % end
 % Theta_grad
 
-X_grad = temp * Theta;
+X_grad = temp * Theta + lambda*X;
 % for i=1:size(X_grad, 1)
 %   X_grad(i, :) = (R(i, :).*(X(i, :)*Theta') - Y(i, :)) * Theta;
 %   % for k=1:size(X_grad, 2)
